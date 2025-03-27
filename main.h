@@ -10,6 +10,6 @@ int _putchar(char c);
 int _char(va_list args);
 int _string(va_list args);
 int _integer(va_list args);
-int print_percent(va_list args)
+int _percent(va_list args);
 
 #endif
