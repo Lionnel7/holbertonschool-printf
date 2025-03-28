@@ -1,0 +1,61 @@
+PRINTF(3)                Custom Library Functions               PRINTF(3)
+
+	NAME
+	_printf - custom printf function that produces formatted output
+
+	SYNOPSIS
+#include "main.h"
+
+	int _printf(const char *format, ...);
+
+	DESCRIPTION
+	The _printf function produces output according to a format string.
+	It writes the output to the standard output and returns the number of characters printed, excluding the null byte used to
+	end output to strings.
+
+	The format string is composed of zero or more directives. Ordinary
+	characters in the format string are printed in the original form. Format specifiers,
+	introduced by the '%' character, dictate the type of arguments
+	expected and the corresponding output.
+
+	Supported Conversion Specifiers
+	%c   Prints a single character. The corresponding argument must be
+	an int representing the character.
+
+	%s   Prints a null-terminated string. If the argument is NULL, the
+	output will be "(null)".
+
+	%%   Prints a literal '%' character.
+
+	%d, %i
+	Prints a signed integer in base 10.
+
+	Return value
+	The _printf function returns the total number of characters printed.
+	If an error occurs, such as when a NULL format string is passed
+	the function returns -1.
+
+	Examples
+	Example 1:
+	To print a simple string:
+	_printf("Hello, World!\\n");
+
+	Example 2:
+	To print an integer and a character:
+	_printf("Number: %d, Letter: %c\\n", 42, 'A');
+
+	Example 3:
+	To handle a NULL string:
+	_printf("This is a %s\\n", NULL);
+
+Output:
+This is a (null)
+
+	Limitations
+	The _printf function does not handle:
+	- Field width or precision
+	- Flags such as '-' or '+'
+	- Length modifiers like 'l' or 'h'
+
+	Authors
+	Written by  Dan Florentin & Pierre Lionnel
