@@ -1,11 +1,4 @@
 #include "main.h"
-
-/*
- * _printf - function that print characters
- * @format: Character string
- * Return: the number of characters printed
- */
-
 int _printf(const char *format, ...)
 {
 	int i = 0, p_chars = 0;
