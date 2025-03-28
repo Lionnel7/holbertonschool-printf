@@ -43,22 +43,21 @@ int main(void)
 {
     int len;
 
-    len = _printf("Good luck little student.\n");
+    len = _printf("Let's try to printf a simple sentence.\n");
     _printf("Len:[%i]\n", len);
     _printf("Int min:[%i]\n", -2147483648);
     _printf("Character:[%c]\n", 'H');
     _printf("String:[%s]\n", "HELLOOOOO !");
     len = _printf("Percent:[%%]\n");
     _printf("Len:[%d]\n", len);
-    _printf("???:[%r]\n");
     return (0);
 }
 ```
 
 **Output :**
 ```
-Good luck little student.
-Len:[26]
+Let's try to printf a simple sentence.
+Len:[36]
 Int min:[-2147483648]
 Character:[H]
 String:[HELLOOOOO !]
@@ -79,7 +78,7 @@ Man commande : `man ./man_3_printf`.
 ![Flowchart](https://i.ibb.co/Hh9jGR3/Flowchart-Printf-1.png)
 ## Authors
 
-- Github : [@SoliraZ](https://www.github.com/SoliraZ)
-- Github : [@danish872](https://github.com/danish872)
+- Github : [@danish872](https://www.github.com/danish872)
+- Github : [@lionnel7](https://github.com/lionel7)
 
 
