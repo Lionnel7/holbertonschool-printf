@@ -1,40 +1,43 @@
 #include "main.h"
+#include <stdarg.h>
+
+/**
+ * _printf - Custom printf function
+ * @format: Format string
+ *
+ * Return: Number of characters printed
+ */
 int _printf(const char *format, ...)
 {
-	int i = 0, p_chars = 0;
+	int i = 0, length = 0;
 	va_list args;
-	if (!format)
+	char *str;
+
+	if (!format || (format[0] == '%' && !format[1]))
 		return (-1);
+
 	va_start(args, format);
 	while (format[i])
 	{
-		if (format[i] == '%')
+		if (format[i] == '%' && format[i + 1])
 		{
 			i++;
-			if (!format[i])
-				return (-1);
 			if (format[i] == 'c')
-				p_chars += _char(args);
+				length += _putchar(va_arg(args, int));
 			else if (format[i] == 's')
-				p_chars += _string(args);
-			else if (format[i] == 'd' || format[i] == 'i')
-				p_chars += _integer(args);
-			else if (format[i] == '%')
-				p_chars += _putchar('%');
-			else
 			{
-				_putchar('%');
-				_putchar(format[i]);
-				p_chars += 2;
+				str = va_arg(args, char *);
+				str = str ? str : "(null)";
+				while (*str)
+					length += _putchar(*str++);
 			}
+			else
+				length += _putchar(format[i] == '%' ? '%' : format[i - 1]), _putchar(format[i]);
 		}
 		else
-		{
-			_putchar(format[i]);
-			p_chars++;
-		}
+			length += _putchar(format[i]);
 		i++;
 	}
 	va_end(args);
-	return (p_chars);
+	return (length);
 }
